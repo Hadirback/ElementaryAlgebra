@@ -1,11 +1,18 @@
+# %matplotlib inline
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(-2 * np.pi, 2 * np.pi, 100)
-y1 = np.cos(x)
-y2 = np.cos(2 * x)
-plt.plot(x, y1, x, y2)
-plt.xlabel('x')
-plt.ylabel('y')
-plt.grid()
-plt.show()
+from pylab import *
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = figure()
+ax = Axes3D(fig)
+X = np.arange(-5, 5, 0.5)
+Y = np.arange(-5, 5, 0.5)
+# X, Y = np.meshgrid(X, Y)
+Z = 2*X + 5*Y
+# ax.plot_wireframe(X, Y, Z)
+# ax.scatter(0, 0, 0, 'z', 50, 'red')
+ax.plot(X, Y, Z, 'red')
+ax.plot(X, Y, Z * Z, 'red')
+show()
